@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction App</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a3d25, #1a5e3c); /* Gradient background */
+            color: #e0e0e0; /* Light gray text */
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700; /* Gold color on hover */
+        }
+
+        .hero {
+            background: url('https://images.unsplash.com/photo-1500559622710-7a40178c59a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDV8fGRpYWJldGV8ZW58MHx8fHwxNjgwNTMxNDEy&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1s;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin: 0;
+            color: #00ff00; /* Bright green */
+            animation: slideInDown 1s;
+            z-index: 2;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 10px 0 20px;
+            animation: fadeIn 1.5s;
+            z-index: 2;
+        }
+
+        .btn-predict {
+            background: #28a745; /* Bootstrap green */
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .btn-predict:hover {
+            transform: scale(1.1);
+            background: #218838; /* Darker green on hover */
+        }
+
+        main {
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        section {
+            background: #222; /* Dark gray for sections */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        section h2 {
+            margin-top: 0;
+            color: #00ff00; /* Bright green */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333; /* Dark footer */
+            color: #fff;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Media Queries */
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn-predict {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Diabetes Prediction App</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h2>Welcome to the Diabetes Prediction Tool</h2>
+        <p>Get insights into your health with our advanced prediction algorithm.</p>
+        <a href="/predict" class="btn-predict">Predict Diabetes</a>
+    </div>
+
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We provide an easy-to-use tool for predicting diabetes risk based on user inputs, helping you understand your health better.</p>
+        </section>
+
+        <section id="features">
+            <h2>Features</h2>
+            <ul>
+                <li>User-friendly interface</li>
+                <li>Accurate predictions</li>
+                <li>Health tips and resources</li>
+                <li>Real-time data analysis</li>
+                <li>Secure and private</li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out!</p>
+            <p>Email: support@diabetesapp.com</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Diabetes Prediction App</p>
+    </footer>
+</body>
+</html>
